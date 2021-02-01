@@ -1,6 +1,6 @@
 #include <UIPEthernet.h>
 String z = "0", serial = "00:01:02:03:04:05";
-char local_ip;
+char local_ip = "0";
 int temp = 0, e_status = 0, power_cut = 0, person = 0;
 EthernetClient client;
 static byte mac[] = {0x00, 0x01, 0x02, 0x03, 0x04, 0x05};
