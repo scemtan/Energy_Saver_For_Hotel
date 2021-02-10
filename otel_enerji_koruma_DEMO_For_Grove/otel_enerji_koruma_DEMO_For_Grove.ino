@@ -4,7 +4,7 @@
 String s = "0";
 unsigned long int xyz = 0;
 int address = 143, read_value = 0, eeprom = A1, eeprom_clr = A2, relay = A3, sense = 2,
-    EXTERNAL_RFID = 3, OUT = 5, IN = 4, GND = 6, pir_header = 7, count = 0, statePIN = LOW, previous = LOW, say = 0,
+    EXTERNAL_RFID = 3, OUT = 4, IN = 5, GND = 6, pir_header = 7, count = 0, statePIN = LOW, previous = LOW, say = 0,
     statu, statu_in, statu_out, statu_pir, statu_eeprom, x;
 int sclPin = A5, sdaPin = A4;
 int gnd_sensor_time = 50; // 1 = 1 msn // açma kapama süresi
@@ -28,7 +28,7 @@ rgb_lcd lcd; // C:\Users\USER\Documents\Arduino\libraries\Grove_LCD_RGB_Backligh
    end
 */
 void setup() {
-  Serial.begin(115200);
+  Serial.begin(9600);
   //-------------------------------------------------------- LCD başlangıç
   lcd.begin(16, 2);
   lcd.setRGB(0, 0, 255);
@@ -49,6 +49,7 @@ void setup() {
   pinMode(eeprom_clr, INPUT);
   pinMode(sense, INPUT);
   pinMode(eeprom, OUTPUT);
+  digitalWrite(eeprom, LOW);
   pinMode(GND, OUTPUT);
   pinMode(relay, OUTPUT);
   digitalWrite(GND, HIGH);
@@ -78,6 +79,7 @@ void electric_sense() {
 }
 void electric_off() {
   if (digitalRead(sense) == HIGH) {
+    digitalWrite(eeprom, HIGH);
     lcd.clear();
     lcd.setCursor(0, 0);
     lcd.print("    ELEKTRIK    "); //⚡⚡⚡⚡⚡⚡⚡
@@ -100,6 +102,9 @@ void electric_off() {
     lcd.setRGB(0, 0, 0);
     delay(500);
     lcd.clear();
+  }
+  else {
+    digitalWrite(eeprom, LOW);
   }
 }
 void (*softwareReset)( void ) = 0x0000; // Atmega328P için 0x0000
