@@ -1,0 +1,12 @@
+# Writing all output to: C:\Users\scemt\OneDrive\Desktop\GITHUB\Energy_Saver_For_Hotel\PCB\PCB-MAIN_FOR_THE_GRANADA\hotel_energy_saver_for_the_granada.log
+set pad_wire_necking on
+bus diagonal
+fanout 5
+route 50
+clean 2
+route 50 16
+clean 2
+filter 5
+recorner diagonal
+status_file
+
