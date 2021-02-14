@@ -1,6 +1,6 @@
-#define relay  A3 
-#define DOOR   4 
-#define BEING 5
+#define relay  17  //  8  --  17  - A3
+#define DOOR   4   //  9
+#define BEING  5   // 10
 int x = 0, y = 0;
 unsigned long old_time_1 = 0, old_time_2 = 0;
 unsigned long now_time_1 = 0, now_time_2 = 0;
