@@ -1,4 +1,4 @@
-#define relay  17  //  8  --  17  - A3
+#define relay  17  //  8  --  17 - A3
 #define DOOR   4   //  9
 #define BEING  5   // 10
 int x = 0, y = 0;
@@ -6,7 +6,7 @@ unsigned long old_time_1 = 0, old_time_2 = 0;
 unsigned long now_time_1 = 0, now_time_2 = 0;
 unsigned long day_time  = 86400000; // 86400000 == 24H // 43200000 == 12H // 21600000 == 6H // 3600000 == 1H // 1800000 == 1/2H
 unsigned long room_time = 45000;
-void setup() {Serial.begin(115200);pinMode(BEING, INPUT);pinMode(DOOR, INPUT);pinMode(relay, OUTPUT);digitalWrite(DOOR,LOW);digitalWrite(BEING,LOW);delay(2500);Serial.println("Sistem Başlatıldı");}
+void setup() {Serial.begin(115200);pinMode(BEING, INPUT);pinMode(DOOR, INPUT);pinMode(relay, OUTPUT);digitalWrite(DOOR,LOW);digitalWrite(BEING,LOW);delay(5000);Serial.println("Sistem Başlatıldı");}
 void loop() {  
 // ***************************************** //
 if (digitalRead(DOOR) == HIGH)
